@@ -23,3 +23,4 @@
     En utilisant une ref, on ne peux plus appeler la valeur de la variable directement
 
     Computed : Une propriété calculée et observateurs elle nous permet d'utiliser le code JS (toute la logique renfermée dans une fonction) et de le retoiurner notre template (html)
+V-model : Une directive qui permet de relier une data à un element du template

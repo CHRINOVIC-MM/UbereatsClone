@@ -22,6 +22,7 @@ import RestautrantCard from "./RestaurantCard.vue";
 
 <style lang="scss">
     .restaurant--row{
+        margin-top: 20px;
         .wrapper--card{
             display: flex;
             align-items: center;

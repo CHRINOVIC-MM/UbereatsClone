@@ -2,7 +2,7 @@
   <div class="home--component">
     <div class="header">
         <img src="../imgs/1.jpg" alt="">
-        <input type="text" placeholder="A quel restaurant voulez-vous manger ?">
+        <input v-model="user_search_restaurant" type="text" placeholder="A quel restaurant voulez-vous manger ?">
     </div>
 
     <div class="banner">
@@ -18,7 +18,7 @@
 <script>
 //Importation de la BDD
 import db from '../db.js'
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 
 import RestaurantRow from "../components/RestautrantRow.vue";
 
@@ -39,6 +39,7 @@ import RestaurantRow from "../components/RestautrantRow.vue";
             }
 
             let dataRestaurant = ref([]);
+            let all_restaurant = [];
 
            let makeDataRestaurant = ()=>{
                
@@ -46,6 +47,7 @@ import RestaurantRow from "../components/RestautrantRow.vue";
             for(const restaurant of db){
                 let new_restaurant = new Restaurant(restaurant.name, restaurant.note, restaurant.image, restaurant.drive_time);
 
+                all_restaurant.push(new_restaurant)
                 if (threeRestaurant.length === 2) {
                     threeRestaurant.push(new_restaurant);
                     dataRestaurant.value.push(threeRestaurant);
@@ -58,10 +60,17 @@ import RestaurantRow from "../components/RestautrantRow.vue";
             
            }
 
+           //User search restaurant
+           let user_search_restaurant = ref(''); 
+
+           watch(user_search_restaurant, (newValue)=>{
+            console.log(newValue);
+           })
            onMounted(makeDataRestaurant);
 
            return{
             dataRestaurant,
+            user_search_restaurant
            }
         }
 }
