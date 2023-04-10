@@ -46,8 +46,9 @@ import RestaurantRow from "../components/RestautrantRow.vue";
                let threeRestaurant = [];
             for(const restaurant of db){
                 let new_restaurant = new Restaurant(restaurant.name, restaurant.note, restaurant.image, restaurant.drive_time);
-
+                //make all restaurant array
                 all_restaurant.push(new_restaurant)
+
                 if (threeRestaurant.length === 2) {
                     threeRestaurant.push(new_restaurant);
                     dataRestaurant.value.push(threeRestaurant);
@@ -63,8 +64,15 @@ import RestaurantRow from "../components/RestautrantRow.vue";
            //User search restaurant
            let user_search_restaurant = ref(''); 
 
-           watch(user_search_restaurant, (newValue)=>{
-            console.log(newValue);
+           watch(user_search_restaurant, newValue=>{
+            //console.log(newValue, all_restaurant);
+
+            let regex = RegExp(newValue);
+
+            let searchRestaurant = all_restaurant.filter(restaurant => regex.test(restaurant.name));
+
+            console.log(searchRestaurant);
+            
            })
            onMounted(makeDataRestaurant);
 

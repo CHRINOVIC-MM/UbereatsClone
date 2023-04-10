@@ -24,9 +24,10 @@ import RestautrantCard from "./RestaurantCard.vue";
     .restaurant--row{
         margin-top: 20px;
         .wrapper--card{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+            grid-gap: 2rem;
+            margin: 2rem;
         }
     }
 

@@ -3,13 +3,13 @@
         <div class="restaurant--image" :style="changeBackgroundImage"></div>
 
         <div class="restaurant--information">
+            <p class="time">{{info_restaurant.drive_time}}</p>
             <div class="top">
                 <p class="name">{{info_restaurant.name}}</p>
                 <p class="note">
                     <span>{{info_restaurant.note}}</span>
                 </p>
             </div>
-            <p class="time">{{info_restaurant.drive_time}}</p>
         </div>
    </div>
 </template>
@@ -39,21 +39,38 @@ export default {
 
 <style lang="scss">
 .restaurant--card{
-    width: 32%;
-    height: 30vh;
+    height: 215px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    &:hover{
+        transform: scale(1.035, 1.035);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
 
     p{
         margin: 0px;
     }
 
     .restaurant--image{
-        background: url('../imgs/1.jpg');
-        height: 70%;
-        background-size: cover;
-        background-position: center;
+        position: absolute;
+        top: 0;
+        height: 110%;
+        width: 100%;
+        z-index: -1;
+        transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .restaurant--information{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
         .top{
             margin: 10px 0;
             display: flex;

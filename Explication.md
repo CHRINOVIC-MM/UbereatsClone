@@ -24,3 +24,5 @@
 
     Computed : Une propriété calculée et observateurs elle nous permet d'utiliser le code JS (toute la logique renfermée dans une fonction) et de le retoiurner notre template (html)
 V-model : Une directive qui permet de relier une data à un element du template
+
+les regex : permet de tester si une chaine de caractere est dans une autre chaine de caracteres
