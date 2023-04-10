@@ -58,6 +58,8 @@ export default {
         margin: 0px;
     }
 
+    
+
     .restaurant--image{
         position: absolute;
         top: 0;
@@ -76,6 +78,8 @@ export default {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding-left: 10px;
+            padding-right: 10px;
 
             .note{
                 background-color: #eeeeee;
@@ -86,11 +90,17 @@ export default {
                 align-items: center;
                 font-size: 0.8rem;
                 border-radius: 50%;
+                
+            }
+
+            .name{
+                font-size: 20px;
             }
         }
 
         .time{
-            font-size: 0.9rem;
+            font-size: 20px;
+
         }
     }
 }
