@@ -5,7 +5,13 @@
         <div class="wrapper--input">
             <input v-model="user_search_restaurant" type="text" placeholder="A quel restaurant voulez-vous manger ?">
             <div class="search">
+                <div v-for="(restaurant, i) in search_restaurant" :key="i" class="container--restaurant--search">
+                    <div class="wrapper--img">
+                        <img :src="restaurant.image" alt="">
+                    </div>
 
+                    <h2>{{ restaurant.name }}</h2>
+                </div>
             </div>
         </div>
     </div>
@@ -74,11 +80,12 @@ import RestaurantRow from "../components/RestautrantRow.vue";
            watch(user_search_restaurant, newValue=>{
             //console.log(newValue, all_restaurant);
 
-            let regex = RegExp(newValue);
+            let regex = RegExp(newValue.toLowerCase());
 
-            let newsearchRestaurant = all_restaurant.filter(restaurant => regex.test(restaurant.name));
+            let newsearchRestaurant = all_restaurant.filter(restaurant => regex.test(restaurant.name.toLowerCase()));
 
-            search_restaurant = newsearchRestaurant;
+
+            newValue == 0 ? search_restaurant.value = [] : search_restaurant.value = newsearchRestaurant; 
             //console.log(searchRestaurant);
             
            })
@@ -120,9 +127,30 @@ import RestaurantRow from "../components/RestautrantRow.vue";
                 position: absolute;
                 top: 100%;
                 width: 100%;
-                height: 100px;
                 background: #ffffff;
-                border: 1px solid #000;
+
+                .container--restaurant--search{
+                    display: flex;
+                    align-items: center;
+
+
+                    &:hover{
+                        cursor: pointer;
+                        background: #f6f6f6;
+                    }
+                    .wrapper--img{
+                        height: 60px;
+                        width: 60px;
+                        margin-right: 25px;
+                        border-radius: 50%;
+                        overflow: hidden;
+
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
             }
         }
     }
