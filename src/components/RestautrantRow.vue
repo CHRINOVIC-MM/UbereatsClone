@@ -25,7 +25,7 @@ import RestautrantCard from "./RestaurantCard.vue";
         margin-top: 20px;
         .wrapper--card{
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             grid-gap: 2rem;
             margin: 2rem;
         }

@@ -100,6 +100,7 @@ export default {
 
         .time{
             font-size: 20px;
+            padding-left: 10px;
 
         }
     }

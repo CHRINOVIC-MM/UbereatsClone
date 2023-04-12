@@ -2,7 +2,12 @@
   <div class="home--component">
     <div class="header">
         <img src="../imgs/1.jpg" alt="">
-        <input v-model="user_search_restaurant" type="text" placeholder="A quel restaurant voulez-vous manger ?">
+        <div class="wrapper--input">
+            <input v-model="user_search_restaurant" type="text" placeholder="A quel restaurant voulez-vous manger ?">
+            <div class="search">
+
+            </div>
+        </div>
     </div>
 
     <div class="banner">
@@ -64,21 +69,25 @@ import RestaurantRow from "../components/RestautrantRow.vue";
            //User search restaurant
            let user_search_restaurant = ref(''); 
 
+           let search_restaurant = ref([]);
+
            watch(user_search_restaurant, newValue=>{
             //console.log(newValue, all_restaurant);
 
             let regex = RegExp(newValue);
 
-            let searchRestaurant = all_restaurant.filter(restaurant => regex.test(restaurant.name));
+            let newsearchRestaurant = all_restaurant.filter(restaurant => regex.test(restaurant.name));
 
-            console.log(searchRestaurant);
+            search_restaurant = newsearchRestaurant;
+            //console.log(searchRestaurant);
             
            })
            onMounted(makeDataRestaurant);
 
            return{
             dataRestaurant,
-            user_search_restaurant
+            user_search_restaurant,
+            search_restaurant
            }
         }
 }
@@ -96,13 +105,25 @@ import RestaurantRow from "../components/RestautrantRow.vue";
             width: 200px;
         }
 
-        input{
-            background: #f6f6f6;
-            border: none;
-            outline: none;
-            height: 60px;
-            width: 400px;
-            padding-left: 20px;
+        .wrapper--input{
+            position: relative;
+            input{
+                background: #f6f6f6;
+                border: none;
+                outline: none;
+                height: 60px;
+                width: 400px;
+                padding-left: 20px;
+            }
+
+            .search{
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                height: 100px;
+                background: #ffffff;
+                border: 1px solid #000;
+            }
         }
     }
 
