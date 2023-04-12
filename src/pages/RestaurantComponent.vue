@@ -3,9 +3,16 @@
 </template>
 
 <script>
+import { onMounted } from 'vue'
+import db from '../db.js'
 
 export default {
     name: 'RestaurantComponent',
+    setup(){
+        onMounted(()=>{
+            console.log(db);
+        })
+    }
 }
 </script>
 
