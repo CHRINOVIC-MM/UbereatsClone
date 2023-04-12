@@ -3,12 +3,18 @@
         <div class="restaurant--image" :style="changeBackgroundImage"></div>
 
         <div class="restaurant--information">
-            <p class="time">{{info_restaurant.drive_time}}</p>
             <div class="top">
                 <p class="name">{{info_restaurant.name}}</p>
                 <p class="note">
                     <span>{{info_restaurant.note}}</span>
                 </p>
+            </div>
+
+            <div class="time">
+                <span>{{info_restaurant.drive_time}}</span>
+                <span>
+                    <router-link :to="{name: 'Restaurant', params: {name: info_restaurant.name}}">Voir le restaurant</router-link>
+                </span>
             </div>
         </div>
    </div>
@@ -48,11 +54,11 @@ export default {
     grid-template-rows: 1fr 1fr;
     transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 
-    &:hover{
+    /*&:hover{
         transform: scale(1.035, 1.035);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         cursor: pointer;
-    }
+    }*/
 
     p{
         margin: 0px;
@@ -100,7 +106,17 @@ export default {
 
         .time{
             font-size: 20px;
+
+            display: flex;
+            justify-content: space-between;
             padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+
+            a{
+                text-decoration: none;
+                color: #000;
+            }
 
         }
     }
