@@ -6,7 +6,7 @@ import HomeComponent from './pages/HomeComponent.vue';
 import RestaurantComponent from './pages/RestaurantComponent.vue';
 const routes = [
     {path:'/', component: HomeComponent },
-    {path:'/restaurant', component: RestaurantComponent }
+    {name: 'Restaurant',path:'/restaurant/:name', component: RestaurantComponent }
 ];
 
 const router = createRouter({
