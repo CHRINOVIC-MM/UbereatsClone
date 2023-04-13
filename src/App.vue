@@ -16,7 +16,8 @@ export default {
 @import url('./style/reset.css');
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  padding: 0px 20px;
+  padding: 0;
+  margin: 0;
   
 }
 </style>

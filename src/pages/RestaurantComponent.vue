@@ -1,12 +1,16 @@
 <template>
 
-    <router-link to="/">
-        <div id="return">Retour à la home</div>
-    </router-link>
-    <img :src="restaurant.image" alt="">
-    <p>Nom du restaurant : {{ restaurant.name }}</p>
-    <p>Note du restaurant : {{ restaurant.note }}</p>
-    <p>Temps de livraison : {{ restaurant.drive_time }}</p>
+    <main>
+        <router-link to="/">
+            <div id="return">Retour à la home</div>
+        </router-link>
+        <div class="wrapper-image">
+            <img :src="restaurant.image" alt="">
+        </div>
+        <p>Nom du restaurant : {{ restaurant.name }}</p>
+        <p>Note du restaurant : {{ restaurant.note }}</p>
+        <p>Temps de livraison : {{ restaurant.drive_time }}</p>
+    </main>
 </template>
 
 <script>
@@ -31,6 +35,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+    main{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        .wrapper-image{
+            width: 100%;
+            height: 50vh;
+    
+    
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
     a{
         text-decoration: none;
     }
